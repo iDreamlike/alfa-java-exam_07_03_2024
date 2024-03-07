@@ -29,6 +29,10 @@ public class Main {
         developer.createTask(epic1);
         developer.createTask(subTask1);
 
+
+        //Зачем-то начал логику реализовывать в main
+        //По-хорошему это все должен делать Developer...
+
         // ============ 2.1 Получение списка всех задач ==========
         System.out.println("=========================");
         System.out.println("Все задачи:");
