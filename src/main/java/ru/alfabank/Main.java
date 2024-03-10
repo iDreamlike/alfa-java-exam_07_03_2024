@@ -1,6 +1,5 @@
 package ru.alfabank;
 
-import ru.alfabank.enums.TaskType;
 import ru.alfabank.developer.Developer;
 import ru.alfabank.enums.TaskStatus;
 
@@ -8,24 +7,49 @@ public class Main {
     public static void main(String[] args) {
         Developer developer = new Developer();
         System.out.println("\n \n        === ЛОГ ВЫПОЛНЕНИЯ ===");
-        System.out.println("\n 1. Создаем Эпик... ");
+        System.out.println("\n 1. Создаем Эпик 1... ");
         developer.addNewEpic(1, "Название Эпика 1", "Описание Эпика 1",
-                TaskStatus.TO_DO, TaskType.Epic);
-        System.out.println("\n 2. Создаем Саб... ");
+                TaskStatus.TO_DO);
+        System.out.println("\n 2. Создаем Саб 1... ");
         developer.addNewSub(101, "Название Саба 101", "Описание Саба 101",
-                TaskStatus.TO_DO, TaskType.Sub, 1);
-        System.out.println("\n 3. Создаем Саб с несуществующим Эпиком... ");
+                TaskStatus.DONE, 1);
+        System.out.println("\n 3. Создаем Саб 2... ");
         developer.addNewSub(102, "Название Саба 102", "Описание Саба 102",
-                TaskStatus.TO_DO, TaskType.Sub, 9);
-        System.out.println("\n 4. Выводим список всех задач... ");
+                TaskStatus.DONE, 1);
+        System.out.println("\n 4. Создаем Саб 3... ");
+        developer.addNewSub(103, "Название Саба 103", "Описание Саба 103",
+                TaskStatus.DONE, 1);
+        System.out.println("\n 1. Создаем Эпик 2 (без подзадач)... ");
+        developer.addNewEpic(2, "Название Эпика 2", "Описание Эпика 2",
+                TaskStatus.TO_DO);
+        System.out.println("\n 5. Создаем Саб с несуществующим Эпиком (ID 9)... ");
+        developer.addNewSub(104, "Название Саба 104", "Описание Саба 104",
+                TaskStatus.TO_DO, 9);
+        System.out.println("\n 6. Выводим список всех задач... ");
         developer.getAllTasks();
-        System.out.println("\n 5. Выводим задачу по номеру ID...");
+        System.out.println("\n 7. Выводим задачу по номеру ID (1)...");
         developer.getTaskById(1);
-        System.out.println("\n 6. Пытаемся вывести задачу по несуществующему номеру ID...");
+        System.out.println("\n 8. Пытаемся вывести задачу по несуществующему номеру ID (9)...");
         developer.getTaskById(9);
-        System.out.println("\n 7. Удаляем все задачи... ");
+        System.out.println("\n 9. Обновляем поля задачи (ID 101)...");
+        developer.updateTaskById(101, "Измененное название Саба 1",
+                "Измененное описание Саба 1");
+        System.out.println("\n 10. Удаляем задачу (ID 102)...");
+        developer.deleteTaskById(102);
+        System.out.println("\n 11. Пытаемся удалить задачу (ID 9)...");
+        developer.deleteTaskById(9);
+        System.out.println("\n 11. Пытаемся удалить задачу (ID 2)...");
+        developer.deleteTaskById(2);
+        System.out.println("\n 12. Выводим все Сабы у Эпика (ID 1)...");
+        developer.getAllSubsFromEpicById(1);
+        System.out.println("\n 13. Меняем статус на DONE у Эпика 1 (все сабы имеют DONE...");
+        developer.updateTaskStatusById(1, TaskStatus.DONE);
+        System.out.println("\n 14. Меняем статус на IN_PROGRESS у Эпика 1 (все сабы имеют DONE)");
+        developer.updateTaskStatusById(1, TaskStatus.IN_PROGRESS);
+        System.out.println("\n 15. Удаляем все задачи... ");
         developer.deleteAllTasks();
-        System.out.println("\n 8. Выводим список всех задач после удаления...");
+        System.out.println("\n 16. Выводим список всех задач после удаления...");
         developer.getAllTasks();
+
     }
 }
