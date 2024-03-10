@@ -1,18 +1,24 @@
 package ru.alfabank.tasks;
 
+import lombok.Getter;
 import ru.alfabank.enums.TaskStatus;
-import java.util.ArrayList;
-import java.util.List;
+import ru.alfabank.enums.TaskType;
 
+@Getter
 public class Epic extends Task {
-    private List<SubTask> subTasks;
 
-    public Epic(int taskId, String title, String description, TaskStatus status) {
-        super(taskId, title, description, status);
-        this.subTasks = new ArrayList<>();
+    public Epic(int taskId, String taskName, String taskDescription, TaskStatus taskStatus, TaskType taskType) {
+        super(taskId, taskName, taskDescription, taskStatus, taskType);
     }
 
-    public void addSubTask(SubTask subTask) {
-        subTasks.add(subTask);
+    @Override
+    public String toString() {
+        return "    ======================= "  + "\n"
+                + "    ID: " + getTaskId() + "\n"
+                + "    taskName: " + getTaskName() + "\n"
+                + "    taskDescription: " + getTaskDescription() + "\n"
+                + "    taskStatus: " + getTaskStatus() + "\n"
+                + "    taskType: " + getTaskType() + "\n"
+                + "    ======================= ";
     }
 }
