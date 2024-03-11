@@ -22,6 +22,7 @@ public class SubTask extends Task {
                 + "    taskDescription: " + getTaskDescription() + "\n"
                 + "    taskStatus: " + getTaskStatus() + "\n"
                 + "    taskType: " + getTaskType() + "\n"
+                + "    parentId: " + getParentId() + "\n"
                 + "    ======================= ";
     }
 }

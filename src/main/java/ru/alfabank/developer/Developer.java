@@ -96,7 +96,6 @@ public class Developer {
         return true;
     }
 
-
     // ========= 2.5 Обновление статуса задачи =========================================================================
     public void updateTaskStatusById(int taskId, TaskStatus taskStatus) {
         Task taskToWork = returnTaskByIdIfExists(taskId, tasks);
@@ -113,7 +112,7 @@ public class Developer {
                 } else if (allSubTasksDone) {
                     taskToWork.setTaskStatus(TaskStatus.DONE); // Если все подзадачи DONE, эпик должен быть DONE
                 } else {
-                    taskToWork.setTaskStatus(TaskStatus.IN_PROGRESS); // Во всех остальных случаях эпик в статусе IN PROGRESS
+                    taskToWork.setTaskStatus(TaskStatus.IN_PROGRESS); // Во всех остальных случаях эпик - IN PROGRESS
                 }
                 System.out.println(taskToWork);
             }
